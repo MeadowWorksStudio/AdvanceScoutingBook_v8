@@ -579,6 +579,91 @@
     }
   }
 
+
+  /* ---- touch devices: prevent sticky hover states from looking preselected ---- */
+  @media (hover: none), (pointer: coarse){
+    .backbtn:hover{
+      color:#BFD3C6 !important;
+    }
+    .lineup-card:hover{
+      border-color:transparent !important;
+      background:rgba(0,0,0,0.18) !important;
+    }
+    .pitch-btn:hover{
+      border-color:var(--steel-light) !important;
+      background:rgba(0,0,0,0.2) !important;
+    }
+    .pitch-btn.suggested:hover{
+      border-color:var(--amber) !important;
+      background:rgba(232,163,61,0.14) !important;
+    }
+    .pitch-btn.selected:hover{
+      border-color:var(--amber) !important;
+      background:rgba(232,163,61,0.2) !important;
+      color:var(--amber) !important;
+    }
+    .zone-cell:hover{
+      background:rgba(245,242,232,0.06) !important;
+    }
+    .chase-btn:hover{
+      background:rgba(0,0,0,0.2) !important;
+      border-color:rgba(255,255,255,0.25) !important;
+      color:#9FB3A7 !important;
+    }
+    .chase-btn.selected:hover{
+      background:rgba(232,163,61,0.22) !important;
+      border-color:var(--amber) !important;
+      color:var(--amber) !important;
+    }
+    .chase-confirm:hover{
+      background:rgba(76,139,90,0.15) !important;
+    }
+    .outcome-btn.ball:hover,
+    .outcome-btn.strike:hover,
+    .outcome-btn.play:hover{
+      background:rgba(0,0,0,0.2) !important;
+    }
+    .outcome-btn.ball:hover,
+    .outcome-btn.strike:hover{
+      border-color:var(--steel-light) !important;
+    }
+    .outcome-btn.play:hover{
+      border-color:var(--good) !important;
+    }
+    .result-btn:hover{
+      background:rgba(0,0,0,0.2) !important;
+    }
+    .result-btn.out:hover{
+      border-color:rgba(181,70,47,0.5) !important;
+    }
+    .result-btn.hit:hover{
+      border-color:rgba(76,139,90,0.6) !important;
+    }
+    .change-batter-btn:hover{
+      border-color:var(--steel-light) !important;
+      color:#B9C7BE !important;
+    }
+    .modal-row:hover{
+      background:rgba(255,255,255,0.05) !important;
+    }
+    .modal-row.add-player:hover{
+      background:rgba(232,163,61,0.08) !important;
+    }
+    .wide-btn:hover{
+      border-color:var(--steel-light) !important;
+      background:rgba(0,0,0,0.2) !important;
+    }
+    .base-pill:hover,
+    .out-adjust-btn:hover{
+      border-color:var(--steel-light) !important;
+    }
+    .base-pill.occupied:hover{
+      border-color:var(--amber) !important;
+      background:rgba(232,163,61,0.22) !important;
+      color:var(--amber) !important;
+    }
+  }
+
 </style>
 </head>
 <body>
