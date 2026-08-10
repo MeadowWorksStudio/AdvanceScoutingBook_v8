@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 <title>ADVANCE SCOUTING BOOK — Pitch Call Prototype v6</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap');
@@ -22,58 +22,17 @@
   }
 
   *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
-  html,body{margin:0; padding:0; background:var(--turf-dark); color:var(--chalk); overflow-x:hidden;}
+  
 
-  body{
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:flex-start;
-    padding:28px 12px 60px;
-    background:
-      radial-gradient(circle at 50% -10%, rgba(232,163,61,0.08), transparent 55%),
-      var(--turf-dark);
-  }
+  
 
-  .intro{
-    max-width:390px;
-    text-align:center;
-    margin-bottom:18px;
-  }
-  .intro h1{
-    font-family:'Oswald',sans-serif;
-    font-weight:700;
-    letter-spacing:0.04em;
-    font-size:22px;
-    margin:0 0 4px;
-    color:var(--chalk);
-  }
-  .intro p{
-    font-size:12.5px;
-    color:#B9C7BE;
-    margin:0;
-    line-height:1.5;
-  }
+  
+  
+  
 
   /* ---- device frame ---- */
-  .device{
-    width:390px;
-    max-width:94vw;
-    background:var(--ink);
-    border-radius:34px;
-    padding:12px;
-    box-shadow:0 30px 60px -20px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04);
-  }
-  .screen{
-    background:linear-gradient(180deg, var(--turf) 0%, #204f2e 100%);
-    border-radius:24px;
-    overflow:hidden;
-    min-height:660px;
-    display:flex;
-    flex-direction:column;
-    position:relative;
-  }
+  
+  
 
   /* ---- top status bar ---- */
   .statbar{
@@ -548,6 +507,78 @@
     font-family:'IBM Plex Mono',monospace; font-size:11px; color:var(--amber);
     text-align:center; margin-bottom:12px; letter-spacing:0.04em;
   }
+
+  /* ---- full-screen mobile app shell ---- */
+  html,body{
+    margin:0;
+    padding:0;
+    width:100%;
+    min-height:100%;
+    background:var(--turf);
+    color:var(--chalk);
+    overflow-x:hidden;
+  }
+
+  body{
+    min-height:100vh;
+    min-height:100dvh;
+    display:block;
+    padding:0;
+    background:var(--turf);
+  }
+
+  .intro{
+    display:none;
+  }
+
+  .device{
+    width:100%;
+    max-width:none;
+    min-height:100vh;
+    min-height:100dvh;
+    background:transparent;
+    border-radius:0;
+    padding:0;
+    box-shadow:none;
+  }
+
+  .screen{
+    width:100%;
+    min-height:100vh;
+    min-height:100dvh;
+    background:linear-gradient(180deg, var(--turf) 0%, #204f2e 100%);
+    border-radius:0;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+    position:relative;
+  }
+
+  .statbar{
+    padding-top:max(10px, env(safe-area-inset-top));
+  }
+
+  .content{
+    padding-left:max(16px, env(safe-area-inset-left));
+    padding-right:max(16px, env(safe-area-inset-right));
+    padding-bottom:max(24px, env(safe-area-inset-bottom));
+  }
+
+  @media (min-width: 700px){
+    body{
+      background:var(--turf-dark);
+    }
+    .device{
+      width:min(760px, 100%);
+      margin:0 auto;
+      min-height:100vh;
+      box-shadow:0 0 0 1px rgba(255,255,255,0.04);
+    }
+    .screen{
+      min-height:100vh;
+    }
+  }
+
 </style>
 </head>
 <body>
