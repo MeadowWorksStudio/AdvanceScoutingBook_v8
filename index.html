@@ -764,6 +764,8 @@
   .asb-heat-shadow-area .asb-batter-shadow.right{right:-80px}
   @media(max-width:380px){.asb-batter-shadow.left{left:-85px}.asb-batter-shadow.right{right:-85px}}
 
+/* Prevent accidental double-tap zoom while retaining normal scrolling. */
+html, body, button, [data-action], input, select, textarea { touch-action: manipulation; }
 </style>
 </head>
 <body>
@@ -1094,7 +1096,8 @@ function statbarHTML(){
 
 function backrowHTML(){
   let left;
-  if(state.view==='setupTeam' || state.view==='lineup') left = '&nbsp;';
+  if(state.view==='setupTeam') left = '&nbsp;';
+  else if(state.view==='lineup') left = `<button class="backbtn" data-action="returnToGame">‹ BACK TO GAME</button>`;
   else if(state.view==='call') left = `<button class="backbtn" data-action="lineup">‹ LINEUP</button>`;
   else left = `<button class="backbtn" data-action="goBack">‹ BACK</button>`;
   const inGame = PITCH_LOOP_VIEWS.concat(['lineup']).includes(state.view);
@@ -2043,6 +2046,7 @@ function attachHandlers(){
     node.addEventListener('click', (e)=>{
       const action = node.dataset.action;
       if(action==='lineup'){ state.view='lineup'; render(); }
+      else if(action==='returnToGame'){ state.modal=null; state.view='call'; render(); }
       else if(action==='openLineupAdd'){state.modal={type:'addPlayer',num:'',first:'',last:'',hand:'R',fromLineup:true};render();}
       else if(action==='lineupReorderHelp'){showToast('Use EDIT on a batter to change batting position');}
       else if(action==='editLineupPlayer'){state.modal={type:'editLineupPlayer',source:node.dataset.source,idx:+node.dataset.idx};render();}
