@@ -44,3 +44,22 @@ Renamed the product to Advance Scouting Book. Added - OUT / + OUT controls and c
 - Keep pitch stats in pop-out vs inline?
 - Do coaches trust/use the suggested-pitch badge?
 - When should backend/persistence begin?
+
+## v7 — Scouting and workflow refinements
+
+Interim iteration between the v6 flow test and v8. The detailed v7 release notes remain the historical source for v7-specific changes.
+
+## v8 — Current testing release
+
+- Adaptive pitch-call button sizing for changing pitcher arsenals; suggested pitch explanation stays inside the pitch button.
+- Opposing lineup and bench management: Add & Next Batter, Add & Close, Add to Bench, editing, substitutions, late arrivals and independent player histories.
+- Compact batter game record (hits–official at-bats and walks, e.g. `2-4, 1 BB`), shown in lineup, call screen and location header.
+- LINEUP control centered between ON BASE and OUT controls in game banner.
+- 17-position pitch location interface, handedness-aware batter silhouette and Catcher/Pitcher Perspective switching on location and heat-map screens.
+- Four fast result buttons beneath location grid, plus detailed foul direction and conditional dropped-third-strike actions.
+- Pitch Stats, Heat Map and Spray Chart controls shown from the first pitch even with insufficient batter history.
+- Edit Pitcher supports adding pitch types; redundant Add Pitch Type removed from Options. Edit Inning added to Options.
+- Game setup and Load Test Mode navigation fixes; edit-player modal sizing and selected-handedness highlight.
+- Recommendation improvements: current-pitcher history fallback for unseen batters; per-pitcher evidence separation; no exterior chase recommendations at three-ball counts.
+
+**Status:** testing, not production certified. Verify complete flows on a phone.
