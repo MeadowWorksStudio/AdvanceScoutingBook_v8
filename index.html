@@ -67,6 +67,10 @@
     display:flex; align-items:center; gap:4px; cursor:pointer; padding:4px 0;
   }
   .backbtn:hover{color:var(--amber);}
+  /* Always-visible in-line navigation on the game lineup screen. */
+  .lineup-return-bar{position:sticky;top:0;z-index:15;background:var(--ink);padding:8px 0 12px;margin:-4px 0 10px;}
+  .lineup-return-btn{display:block;width:100%;min-height:46px;border:2px solid var(--amber);border-radius:9px;background:var(--turf-dark);color:var(--chalk);font:700 15px 'IBM Plex Sans',sans-serif;cursor:pointer;touch-action:manipulation;}
+
 
   .content{
     flex:1;
@@ -133,6 +137,7 @@
   .lineup-banner-btn{align-self:center;background:rgba(232,163,61,.12);border:1px solid var(--amber);border-radius:9px;color:var(--amber);font-weight:800;font-size:11px;padding:10px 8px;cursor:pointer;white-space:nowrap;}
   .lineup-record{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--amber);white-space:nowrap;}
   .lineup-tools{display:flex;gap:8px;margin:12px 0;flex-wrap:wrap;}
+  .lineup-tools button{flex:1 1 auto;min-width:0;}
   .lineup-tools button,.lineup-edit{background:#26372f;color:#f2f5ef;border:1px solid #607469;border-radius:8px;padding:9px;cursor:pointer;font-size:11px;font-weight:700;}
   .lineup-card.active-batter{border-color:var(--amber);}
   .badge.scouted{background:rgba(232,163,61,0.18); color:var(--amber); border:1px solid rgba(232,163,61,0.4);}
@@ -1097,7 +1102,7 @@ function statbarHTML(){
 function backrowHTML(){
   let left;
   if(state.view==='setupTeam') left = '&nbsp;';
-  else if(state.view==='lineup') left = `<button class="backbtn" data-action="returnToGame">‹ BACK TO GAME</button>`;
+  else if(state.view==='lineup') left = '&nbsp;';
   else if(state.view==='call') left = `<button class="backbtn" data-action="lineup">‹ LINEUP</button>`;
   else left = `<button class="backbtn" data-action="goBack">‹ BACK</button>`;
   const inGame = PITCH_LOOP_VIEWS.concat(['lineup']).includes(state.view);
@@ -1274,7 +1279,7 @@ function lineupHTML(){
     <button class="lineup-edit" data-action="lineupInsertBench" data-idx="${i}">SUB IN</button>
   </div>`).join('');
   return `<div class="label">OPPOSING LINEUP — ${game.opponent||'OPPONENT'}</div>
-    ${cards}<div class="lineup-tools"><button data-action="openLineupAdd">+ ADD PLAYER</button><button data-action="lineupReorderHelp">EDIT BATTING ORDER</button></div>
+    ${cards}<div class="lineup-tools"><button data-action="openLineupAdd">+ ADD PLAYER</button><button data-action="lineupReorderHelp">EDIT BATTING ORDER</button><button type="button" data-action="returnToGame">RESUME GAME</button></div>
     <div class="label">BENCH (${bench.length})</div>${benchRows||'<div class="footer-hint">No bench players entered.</div>'}
     <div class="footer-hint">Records show hits–at bats and walks for this game. Edit a player to correct a record. Safe balls in play are initially counted as hits; correct errors and other non-hit reaches manually.</div>`;
 }
